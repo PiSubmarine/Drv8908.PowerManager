@@ -12,9 +12,9 @@ namespace PiSubmarine::Drv8908
         virtual void Release(PowerLease& lease) = 0;
 
     protected:
-        static PowerLease CreateLease(IPowerManager& manager, int userIndex);
-        static IPowerManager& GetLeaseManager(PowerLease& lease);
-        static void SetLeaseManager(const PowerLease& lease, const IPowerManager& leaseManager);
+        static PowerLease CreateLease(IPowerManager* manager, int userIndex);
+        static IPowerManager* GetLeaseManager(PowerLease& lease);
+        static void SetLeaseManager(PowerLease& lease, IPowerManager* leaseManager);
         static int GetLeaseUserIndex(const PowerLease& lease);
         static void SetLeaseUserIndex(PowerLease& lease, int userIndex);
 

@@ -21,7 +21,7 @@ namespace PiSubmarine::Drv8908
         {
             m_Device.SetSleeping(false);
         }
-        PowerLease lease = CreateLease(*this, m_UserCounter);
+        PowerLease lease = CreateLease(this, m_UserCounter);
         m_UserCounter++;
         return std::move(lease);
     }

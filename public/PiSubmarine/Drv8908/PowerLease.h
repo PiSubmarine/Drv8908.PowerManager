@@ -13,6 +13,8 @@ namespace PiSubmarine::Drv8908
         // Copy is forbidden
         PowerLease& operator=(const PowerLease& other) = delete;
 
+        PowerLease();
+
         PowerLease(PowerLease&& other) noexcept;
         PowerLease& operator=(PowerLease&& other) noexcept;
 
@@ -20,10 +22,10 @@ namespace PiSubmarine::Drv8908
         [[nodiscard]] bool IsValid() const;
 
     protected:
-        IPowerManager& m_PowerManager;
+        IPowerManager* m_PowerManager;
         int m_UserIndex;
 
-        explicit PowerLease(IPowerManager& manager, int userIndex);
+        explicit PowerLease(IPowerManager* manager, int userIndex);
 
         friend class IPowerManager;
     };

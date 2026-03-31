@@ -2,17 +2,17 @@
 
 namespace PiSubmarine::Drv8908
 {
-    PowerLease IPowerManager::CreateLease(IPowerManager& manager, int userIndex)
+    PowerLease IPowerManager::CreateLease(IPowerManager* manager, int userIndex)
     {
         return PowerLease(manager, userIndex);
     }
 
-    IPowerManager& IPowerManager::GetLeaseManager(PowerLease& lease)
+    IPowerManager* IPowerManager::GetLeaseManager(PowerLease& lease)
     {
         return lease.m_PowerManager;
     }
 
-    void IPowerManager::SetLeaseManager(const PowerLease& lease, const IPowerManager& leaseManager)
+    void IPowerManager::SetLeaseManager(PowerLease& lease, IPowerManager* leaseManager)
     {
         lease.m_PowerManager = leaseManager;
     }
